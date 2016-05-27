@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -22,6 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
+                android:orientation="horizontal"
                 android:layout_weight="4"></LinearLayout>
 
             <LinearLayout
@@ -41,7 +44,8 @@
                     <LinearLayout
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.4"></LinearLayout>
+                        android:layout_weight="0.4"
+                        android:orientation="horizontal"></LinearLayout>
 
                     <Button
                         android:id="@+id/Btn_Navigation"
@@ -71,12 +75,21 @@
 
             </LinearLayout>
 
+            <com.astuetz.PagerSlidingTabStrip
+                android:id="@+id/main_TabBar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                app:pstsShouldExpand="true"
+                app:pstsTextAllCaps="true">
+            </com.astuetz.PagerSlidingTabStrip>
+
             <android.support.v4.view.ViewPager
 
                 android:id="@+id/main_ViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="85">
+                android:layout_weight="74">
 
             </android.support.v4.view.ViewPager>
 
@@ -185,7 +198,8 @@
                     <LinearLayout
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
-                        android:layout_weight="38"></LinearLayout>
+                        android:layout_weight="38"
+                        android:orientation="horizontal"></LinearLayout>
 
 
                     <LinearLayout
@@ -198,12 +212,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
-                            android:layout_weight="20"></LinearLayout>
+                            android:layout_weight="20"
+                            android:orientation="horizontal"></LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
-                            android:layout_weight="53">
+                            android:layout_weight="53"
+                            android:orientation="horizontal">
 
                             <Button
                                 android:id="@+id/Btn_Like"
@@ -220,7 +236,8 @@
                 <LinearLayout
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
-                    android:layout_weight="22">
+                    android:layout_weight="22"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/Btn_Write"
@@ -240,7 +257,8 @@
                     <LinearLayout
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
-                        android:layout_weight="34"></LinearLayout>
+                        android:layout_weight="34"
+                        android:orientation="horizontal"></LinearLayout>
 
 
                     <LinearLayout
@@ -253,12 +271,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
-                            android:layout_weight="20"></LinearLayout>
+                            android:layout_weight="20"
+                            android:orientation="horizontal"></LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dip"
-                            android:layout_weight="50">
+                            android:layout_weight="50"
+                            android:orientation="horizontal">
 
                             <Button
                                 android:id="@+id/Btn_Comment"

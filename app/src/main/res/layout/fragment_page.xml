@@ -3,7 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
     android:orientation="horizontal"
-    tools:context="jm.dodam.aragraphyver20.SplashActivity">
+    tools:context="jm.dodam.aragraphyver20.PageFragment">
+
+    <TextView
+        android:id="@+id/page_item_tv"
+        android:text="Fragment #X"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"/>
+
 </LinearLayout>
