@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:context="jm.dodam.aragraphyver20.MainActivity">
 
     <LinearLayout
         android:id="@+id/Background"
@@ -15,14 +15,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="80"
+            android:layout_weight="85"
             android:orientation="vertical"
             android:weightSum="100">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="4"></LinearLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dip"-->
+            <!--android:layout_weight="4"></LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,88 +71,97 @@
 
             </LinearLayout>
 
+            <!-- 탭구현-->
+
+            <com.astuetz.PagerSlidingTabStrip
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="14">
+
+            </com.astuetz.PagerSlidingTabStrip>
+
+
             <android.support.v4.view.ViewPager
 
                 android:id="@+id/main_ViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="69">
+                android:layout_weight="70">
 
             </android.support.v4.view.ViewPager>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="5.7"
-                android:orientation="horizontal"
-                android:weightSum="100">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dip"-->
+                <!--android:layout_weight="5.7"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="100">-->
 
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="67"></LinearLayout>
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="67"></LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7.6">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="7.6">-->
 
-                    <Button
-                        android:id="@+id/Btn_Comment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/comment"/>
+                    <!--<Button-->
+                    <!--android:id="@+id/Btn_Comment"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/comment" />-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="8">-->
 
-                    <TextView
-                        android:id="@+id/Text_comment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="0"
-                        android:textSize="10sp"
-                        android:textColor="#ffffff"/>
+                    <!--<TextView-->
+                    <!--android:id="@+id/Text_comment"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:text="0"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:textSize="10sp" />-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7.6">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="7.6">-->
 
-                    <ImageView
-                        android:id="@+id/Image_leaf"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/leaf"/>
+                    <!--<ImageView-->
+                    <!--android:id="@+id/Image_leaf"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:src="@drawable/leaf" />-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7.6">
-
-
-                    <TextView
-                        android:id="@+id/leaf_num"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="0"
-                        android:textSize="10sp"
-                        android:textColor="#ffffff"/>
-
-                </LinearLayout>
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="7.6">-->
 
 
+                    <!--<TextView-->
+                    <!--android:id="@+id/leaf_num"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:text="0"-->
+                    <!--android:textColor="#ffffff"-->
+                    <!--android:textSize="10sp" />-->
 
-            </LinearLayout>
+                <!--</LinearLayout>-->
+
+
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 
@@ -163,10 +172,10 @@
             android:orientation="vertical"
             android:weightSum="100">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="15"></LinearLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dip"-->
+            <!--android:layout_weight="15"></LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -261,10 +270,10 @@
                             android:layout_weight="50">
 
                             <Button
-                                android:id="@+id/Btn_Share"
+                                android:id="@+id/Btn_Comment"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/share" />
+                                android:background="@drawable/comment" />
 
                         </LinearLayout>
 
@@ -277,5 +286,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>
