@@ -1,6 +1,7 @@
 package jm.dodam.aragraphyver20;
 
 import android.app.Activity;
+import android.app.Application;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;

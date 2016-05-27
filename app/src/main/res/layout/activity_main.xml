@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="85"
+            android:layout_weight="88"
             android:orientation="vertical"
             android:weightSum="100">
 
@@ -25,14 +25,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:orientation="horizontal"
-                android:layout_weight="4"></LinearLayout>
+                android:layout_weight="4"
+                android:background="#84000000"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="10"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:background="#84000000">
 
                 <LinearLayout
                     android:layout_width="0dip"
@@ -79,17 +81,33 @@
                 android:id="@+id/main_TabBar"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="10"
+                android:layout_weight="7"
+                android:textSize="17sp"
+                android:textColor="#ffffff"
+                android:background="#84000000"
                 app:pstsShouldExpand="true"
-                app:pstsTextAllCaps="true">
+                app:pstsTextAllCaps="true"
+                app:pstsIndicatorColor="#ffffff">
             </com.astuetz.PagerSlidingTabStrip>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="14"
+                android:weightSum="100"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:background="#84000000">
+
+                <!-- TODO : 프로필 xml-->
+
+            </LinearLayout>
 
             <android.support.v4.view.ViewPager
 
                 android:id="@+id/main_ViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="74">
+                android:layout_weight="64">
 
             </android.support.v4.view.ViewPager>
 
@@ -186,7 +204,8 @@
                 android:layout_height="0dip"
                 android:layout_weight="61.5"
                 android:orientation="horizontal"
-                android:weightSum="100">
+                android:weightSum="100"
+                android:background="#84000000">
 
                 <LinearLayout
                     android:layout_width="0dip"

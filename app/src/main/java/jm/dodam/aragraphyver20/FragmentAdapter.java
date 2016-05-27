@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class FragmentAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 4;
-    private String tabTitles[] = new String[] {"Tab1", "Tab2","Tab3", "Tab4"};
+    private String tabTitles[] = new String[] {"쉼터", "MY Book","팔로잉", "검색"};
 
     public FragmentAdapter(FragmentManager fm) {
         super(fm);
