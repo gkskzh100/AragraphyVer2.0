@@ -5,5 +5,4 @@
     android:layout_height="match_parent"
     android:background="@drawable/splash"
     tools:context="jm.dodam.aragraphyver20.SplashActivity">
-
 </LinearLayout>
