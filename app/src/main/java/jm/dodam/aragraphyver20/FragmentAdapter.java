@@ -14,11 +14,11 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     public FragmentAdapter(FragmentManager fm) {
         super(fm);
     }
-
     @Override
     public int getCount() {
         return PAGE_COUNT;
     }
+
 
     @Override
     public Fragment getItem(int position) {
