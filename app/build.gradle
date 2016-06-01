@@ -24,9 +24,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
 
-<<<<<<< HEAD
+//    Tab Bar
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
-=======
 
->>>>>>> ccf42baf526a248eddab2f201c1c0452fbb0695f
+//    Circle Image View
+    compile 'de.hdodenhof:circleimageview:1.2.2'
 }
