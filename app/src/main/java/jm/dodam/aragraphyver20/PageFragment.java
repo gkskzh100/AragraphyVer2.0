@@ -54,7 +54,7 @@ public class PageFragment extends Fragment {
                 for (int i = 0; i < 10; i++) {
                     items.add(item[i]);
                 }
-                recyclerView.setAdapter(new RecyclerAdapter(getHeader(), getActivity(), items));
+                recyclerView.setAdapter(new RecyclerAdapter(getHeader(), items));
                 break;
             case 3:
                 view = inflater.inflate(R.layout.fragment_page, container, false);

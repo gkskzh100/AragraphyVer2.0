@@ -19,12 +19,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int TYPE_ITEM = 1;
 
     MyBookHeader myBookHeader;
-    Context context;
     List<RecyclerItem> items;
 
-    public RecyclerAdapter(MyBookHeader myBookHeader, Context context, List<RecyclerItem> items) {
+    public RecyclerAdapter(MyBookHeader myBookHeader, List<RecyclerItem> items) {
         this.myBookHeader = myBookHeader;
-        this.context = context;
         this.items = items;
 
     }
@@ -52,9 +50,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }else if(holder instanceof ViewHolder){
 
             RecyclerItem currentItem = getItem(position-1);
-            Drawable drawable=context.getResources().getDrawable(currentItem.getImage());
             ViewHolder viewHolder = (ViewHolder)holder;
-            viewHolder.image.setBackground(drawable);
+            viewHolder.image.setBackgroundResource(currentItem.getImage());
         }
 
 
