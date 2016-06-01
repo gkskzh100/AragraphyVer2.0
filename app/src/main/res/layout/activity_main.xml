@@ -2,7 +2,6 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:xmls="http://schemas.android.com/tools"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -14,21 +13,22 @@
         android:orientation="vertical"
         android:weightSum="100">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="100"
-            android:orientation="vertical"
-            android:weightSum="100">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:orientation="horizontal"
-                android:layout_weight="4"
-                android:background="#84000000"></LinearLayout>
-
-            <LinearLayout
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="100">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="4"
+                    android:background="#84000000"></LinearLayout>
+                <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:layout_weight="10"
@@ -36,7 +36,7 @@
                 android:weightSum="3"
                 android:background="#84000000">
 
-                <LinearLayout
+                    <LinearLayout
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -44,40 +44,40 @@
                     android:weightSum="3">
 
                     <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:orientation="horizontal"></LinearLayout>
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:orientation="horizontal"></LinearLayout>
 
                     <Button
-                        android:id="@+id/mainNavigationBtn"
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.1"
-                        android:background="#00000000" />
+                    android:id="@+id/mainNavigationBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.1"
+                    android:background="#00000000" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"></LinearLayout>
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"></LinearLayout>
 
-            </LinearLayout>
+                </LinearLayout>
 
-            <com.astuetz.PagerSlidingTabStrip
+                <com.astuetz.PagerSlidingTabStrip
                 android:id="@+id/mainTabBar"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -89,27 +89,105 @@
                 app:pstsTextAllCaps="true"
                 app:pstsIndicatorColor="#ffffff"
                 app:pstsIndicatorHeight="3dp">
-            </com.astuetz.PagerSlidingTabStrip>
-
+                </com.astuetz.PagerSlidingTabStrip>
+            </LinearLayout>
             <android.support.v4.view.ViewPager
-
                 android:id="@+id/mainViewPager"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="80">
-
+                android:layout_height="match_parent">
             </android.support.v4.view.ViewPager>
+        </FrameLayout>
 
-        </LinearLayout>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dip"-->
+            <!--android:layout_weight="100"-->
+            <!--android:orientation="vertical"-->
+            <!--android:weightSum="100">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="20"
-            android:orientation="vertical"
-            android:weightSum="100">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dip"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_weight="4"-->
+                <!--android:background="#84000000"></LinearLayout>-->
 
-        </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dip"-->
+                <!--android:layout_weight="10"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="3"-->
+                <!--android:background="#84000000">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:weightSum="3">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="0dip"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_weight="0.4"-->
+                        <!--android:orientation="horizontal"></LinearLayout>-->
+
+                    <!--<Button-->
+                        <!--android:id="@+id/mainNavigationBtn"-->
+                        <!--android:layout_width="0dip"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_weight="1.1"-->
+                        <!--android:background="#00000000" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1">-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:src="@drawable/logo" />-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"></LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<com.astuetz.PagerSlidingTabStrip-->
+                <!--android:id="@+id/mainTabBar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="7"-->
+                <!--android:textSize="17sp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:background="#84000000"-->
+                <!--app:pstsShouldExpand="true"-->
+                <!--app:pstsTextAllCaps="true"-->
+                <!--app:pstsIndicatorColor="#ffffff"-->
+                <!--app:pstsIndicatorHeight="3dp">-->
+            <!--</com.astuetz.PagerSlidingTabStrip>-->
+
+            <!--<android.support.v4.view.ViewPager-->
+                <!--android:id="@+id/mainViewPager"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="80">-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:background="#ffffff">-->
+                <!--</LinearLayout>-->
+            <!--</android.support.v4.view.ViewPager>-->
+
+        <!--</LinearLayout>-->
 
     </LinearLayout>
 
