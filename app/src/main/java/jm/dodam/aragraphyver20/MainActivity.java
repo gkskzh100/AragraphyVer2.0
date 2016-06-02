@@ -7,11 +7,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import com.astuetz.PagerSlidingTabStrip;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.mainTabBar);
         tabStrip.setViewPager(viewPager);
+
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
+        linearLayout.bringToFront();
+        linearLayout.invalidate();
 
 
     }
