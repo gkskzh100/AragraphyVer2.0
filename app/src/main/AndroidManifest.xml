@@ -27,6 +27,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.InvisibleActionBar" />
+        <service android:name=".MyIntentService"/>
     </application>
 
 </manifest>
