@@ -11,10 +11,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
+
 /**
  * Created by Bong on 2016-05-31.
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
@@ -30,6 +32,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_HEADER) {
+
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.headeritem_mybook, parent, false);
             return new ViewHeader(v);
         } else if (viewType == TYPE_ITEM) {
@@ -38,7 +41,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
         throw new RuntimeException("thare is no type matches the type "+viewType+" + make sure your using types correctly");
     }
-    private RecyclerItem getItem(int position){
+    public RecyclerItem getItem(int position){
         return items.get(position);
     }
 

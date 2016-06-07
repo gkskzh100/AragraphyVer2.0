@@ -28,7 +28,14 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.InvisibleActionBar" />
+
         <activity android:name=".WriteActivity"></activity>
+
+        <service android:name=".MyIntentService"
+            android:enabled="true"
+            android:exported="false"/>
+
     </application>
+
 
 </manifest>

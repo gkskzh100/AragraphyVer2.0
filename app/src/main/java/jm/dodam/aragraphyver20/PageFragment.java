@@ -3,6 +3,7 @@ package jm.dodam.aragraphyver20;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +33,8 @@ public class PageFragment extends Fragment {
     private Button timeLineCommentBtn;
     private TextView timeLineCommentText;
     private ImageButton timeLineFollowBtn;
+
+    private BottomSheetBehavior timeLineBottomSheetBehavior;
 
     private int timeLineLikeNum = 193;
 
@@ -108,6 +111,15 @@ public class PageFragment extends Fragment {
                             timeLineFollowBtn.setImageResource(R.drawable.follow_btn);
                             followCnt=0;
                         }
+                    }
+                });
+
+                View bottomSheet = view.findViewById(R.id.timeLineBottom_sheet);
+                timeLineBottomSheetBehavior=BottomSheetBehavior.from(bottomSheet);
+                timeLineCommentBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        timeLineBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                     }
                 });
 
