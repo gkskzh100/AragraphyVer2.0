@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
-
 /**
  * Created by Bong on 2016-05-31.
  */
