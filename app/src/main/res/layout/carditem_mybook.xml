@@ -51,36 +51,83 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="30"
+                    android:layout_weight="35"
                     android:weightSum="100"
                     android:orientation="vertical">
-                    <TextView
-                        android:textColor="#000000"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="60"
-                        android:text="no_Name 0205"
-                        android:textSize="14sp"
-                        android:gravity="bottom" />
-                    <TextView
-                        android:textColor="#000000"
+                        android:weightSum="100"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"></LinearLayout>
+                        <TextView
+                            android:textColor="#000000"
+                            android:id="@+id/timeLineUserNameText"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="90"
+                            android:text="no_Name 0205"
+                            android:textSize="16sp"
+                            android:gravity="bottom" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="40"
-                        android:text="4월 13일 오후 8:10"
-                        android:textSize="12sp"
-                        android:gravity="top"/>
+                        android:weightSum="100"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:src="@drawable/clock_img" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"></LinearLayout>
+                        <TextView
+                            android:textColor="#000000"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="88"
+                            android:text="4월 13일 오후 8:10"
+                            android:textSize="12sp"
+                            android:gravity="start|center"/>
+                    </LinearLayout>
+
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="37">
+                    android:layout_weight="32">
 
                 </LinearLayout>
-                <Button
-                    android:layout_width="0dip"
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="11"/>
+                    android:layout_weight="9"
+                    android:weightSum="10"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"></LinearLayout>
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:src="@drawable/jumx3_btn"
+                        android:background="#00000000"
+                        android:scaleType="fitCenter"
+                        android:layout_weight="3.5" />
+                </LinearLayout>
 
             </LinearLayout>
 

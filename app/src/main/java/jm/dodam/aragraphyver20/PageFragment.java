@@ -1,6 +1,6 @@
 package jm.dodam.aragraphyver20;
 
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,7 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PageFragment extends Fragment {
-    private int i;
+    private int likeCnt=0;
+    private int followCnt=0;
 
     public static final String ARG_PAGE = "ARG_PAGE";
     private RecyclerView recyclerView;
@@ -30,6 +31,9 @@ public class PageFragment extends Fragment {
     private Button timeLineWriteBtn;
     private Button timeLineCommentBtn;
     private TextView timeLineCommentText;
+    private ImageButton timeLineFollowBtn;
+
+    private int timeLineLikeNum = 193;
 
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -58,24 +62,55 @@ public class PageFragment extends Fragment {
         switch (pageNum) {
             case 1:
                 view = inflater.inflate(R.layout.fragment_timeline, container, false);
+
                 timeLineLikeBtn = (ImageButton) view.findViewById(R.id.timeLineLikeBtn);
                 timeLineLikeText = (TextView) view.findViewById(R.id.timeLineLikeText);
                 timeLineWriteBtn = (Button) view.findViewById(R.id.timeLineWriteBtn);
                 timeLineCommentBtn = (Button) view.findViewById(R.id.timeLineCommentBtn);
                 timeLineCommentText = (TextView) view.findViewById(R.id.timeLineCommentText);
+                timeLineFollowBtn = (ImageButton) view.findViewById(R.id.timeLineFollowBtn);
+
+                timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
 
                 timeLineLikeBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(i==0) {
-                            timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.like_push));
-                            i++;
-                        } else if(i==1) {
-                            timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.like));
-                            i=0;
+                        if(likeCnt ==0) {
+                            timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_like_btn));
+                            timeLineLikeNum++;
+                            likeCnt++;
+                            timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
+                        } else if(likeCnt ==1) {
+                            timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.like_btn));
+                            timeLineLikeNum--;
+                            likeCnt =0;
+                            timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
                         }
                     }
                 });
+                timeLineWriteBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(),WriteActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                timeLineFollowBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(followCnt==0) {
+//                            timeLineFollowBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.following_btn));
+                            timeLineFollowBtn.setImageResource(R.drawable.following_btn);
+                            followCnt++;
+                        } else if(followCnt==1) {
+//                            timeLineFollowBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.follow_btn));
+                            timeLineFollowBtn.setImageResource(R.drawable.follow_btn);
+                            followCnt=0;
+                        }
+                    }
+                });
+
                 break;
             case 2:
                 view = inflater.inflate(R.layout.fragment_mybook, container, false);
@@ -103,4 +138,5 @@ public class PageFragment extends Fragment {
         MyBookHeader header = new MyBookHeader("I'm header");
         return header;
     }
+
 }

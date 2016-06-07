@@ -13,14 +13,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="87"
+            android:layout_weight="88"
             android:orientation="vertical"
             android:weightSum="100">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="24.1"></LinearLayout>
+                android:layout_weight="23.89"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,25 +57,55 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="30"
+                    android:layout_weight="35"
                     android:weightSum="100"
                     android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/timeLineUserNameText"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="60"
-                        android:text="no_Name 0205"
-                        android:textSize="14sp"
-                        android:gravity="bottom" />
-                    <TextView
-                        android:id="@+id/timeLineTimeText"
+                        android:weightSum="100"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"></LinearLayout>
+                        <TextView
+                            android:id="@+id/timeLineUserNameText"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="90"
+                            android:text="no_Name 0205"
+                            android:textSize="16sp"
+                            android:gravity="bottom" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="40"
-                        android:text="4월 13일 오후 8:10"
-                        android:textSize="12sp"
-                        android:gravity="top"/>
+                        android:weightSum="100"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:src="@drawable/clock_img" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"></LinearLayout>
+                        <TextView
+                            android:id="@+id/timeLineTimeText"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="88"
+                            android:text="4월 13일 오후 8:10"
+                            android:textSize="12sp"
+                            android:gravity="start|center"/>
+
+                    </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -90,12 +120,15 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="20"></LinearLayout>
-                    <Button
+                        android:layout_weight="40"></LinearLayout>
+                    <ImageButton
                         android:id="@+id/timeLineFollowBtn"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="50"/>
+                        android:layout_weight="30"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/follow_btn"
+                        android:background="#00ffffff"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -108,7 +141,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="22"
+            android:layout_weight="21"
             android:orientation="vertical"
             android:weightSum="100">
 
@@ -131,26 +164,26 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="30"></LinearLayout>
+                        android:layout_weight="40"></LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="30"
+                        android:layout_weight="16"
                         android:orientation="vertical"
                         android:weightSum="40">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="10"></LinearLayout>
+                            android:layout_weight="17"></LinearLayout>
 
                         <ImageButton
                             android:id="@+id/timeLineLikeBtn"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="20"
-                            android:background="@drawable/like" />
+                            android:layout_weight="10"
+                            android:background="@drawable/like_btn"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -201,26 +234,26 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="30"></LinearLayout>
+                        android:layout_weight="35"></LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="30"
+                        android:layout_weight="16"
                         android:orientation="vertical"
                         android:weightSum="40">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="10"></LinearLayout>
+                            android:layout_weight="15"></LinearLayout>
 
                         <Button
                             android:id="@+id/timeLineCommentBtn"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="20"
-                            android:background="@drawable/comment" />
+                            android:layout_weight="10"
+                            android:background="@drawable/comment_btn" />
                     </LinearLayout>
 
                     <LinearLayout
