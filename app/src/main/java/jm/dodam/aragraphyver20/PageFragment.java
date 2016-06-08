@@ -1,28 +1,25 @@
 package jm.dodam.aragraphyver20;
 
-import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import jm.dodam.aragraphyver20.core.StikkyHeaderBuilder;
+
 public class PageFragment extends Fragment {
     private int i;
-
+    private ListView mListView;
     public static final String ARG_PAGE = "ARG_PAGE";
-    private RecyclerView recyclerView;
     private int pageNum;
     private List<RecyclerItem> items = new ArrayList<>();
     private RecyclerItem item[] = new RecyclerItem[10];
@@ -69,28 +66,20 @@ public class PageFragment extends Fragment {
                 timeLineLikeBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(i==0) {
+                        if (i == 0) {
                             timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.like_push));
                             i++;
-                        } else if(i==1) {
+                        } else if (i == 1) {
                             timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.like));
-                            i=0;
+                            i = 0;
                         }
                     }
                 });
                 break;
             case 2:
-                view = inflater.inflate(R.layout.fragment_mybook, container, false);
-                recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-                for (int i = 0; i < 10; i++) {
-                    items.add(item[i]);
-                }
-                recyclerView.setAdapter(new RecyclerAdapter(getHeader(), items));
-
-                 break;
+                view = inflater.inflate(R.layout.fragment_parallax, container, false);
+                mListView = (ListView) view.findViewById(R.id.listview);
+                break;
             case 3:
                 view = inflater.inflate(R.layout.fragment_page, container, false);
                 break;
@@ -102,8 +91,15 @@ public class PageFragment extends Fragment {
         return view;
     }
 
-    public MyBookHeader getHeader() {
-        MyBookHeader header = new MyBookHeader("I'm header");
-        return header;
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (pageNum == 2) {
+            StikkyHeaderBuilder.stickTo(mListView)
+                    .setHeader(R.id.header, (ViewGroup) getView())
+                    .minHeightHeader(850)//헤더길이설정
+                    .build();
+            Utils.populateListView(mListView);
+        }
     }
 }
