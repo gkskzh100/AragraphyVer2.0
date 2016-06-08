@@ -2,6 +2,7 @@ package jm.dodam.aragraphyver20;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,6 +76,17 @@ public class PageFragment extends Fragment {
                         }
                     }
                 });
+
+                View bottomSheet = view.findViewById(R.id.timeLineBottom_sheet);
+//                timeLineBottomSheetBehavior=BottomSheetBehavior.from(bottomSheet);
+                timeLineCommentBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                        timeLineBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+                    }
+                });
+
                 break;
             case 2:
                 view = inflater.inflate(R.layout.fragment_parallax, container, false);
