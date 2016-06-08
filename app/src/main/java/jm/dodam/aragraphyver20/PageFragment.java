@@ -120,6 +120,7 @@ public class PageFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         timeLineBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
                     }
                 });
 
