@@ -35,5 +35,8 @@ dependencies {
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.nineoldandroids:library:2.4.0'
 
+//    Bottom Sheet
+    compile 'com.android.support:design:23.2.0'
+
 
 }

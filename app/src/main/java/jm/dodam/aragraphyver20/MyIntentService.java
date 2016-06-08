@@ -8,11 +8,7 @@ import android.os.IBinder;
  * Created by Bong on 2016-06-03.
  */
 public class MyIntentService extends IntentService {
-    /**
-     * Creates an IntentService.  Invoked by your subclass's constructor.
-     *
-     * @param name Used to name the worker thread, important only for debugging.
-     */
+
     public MyIntentService(String name) {
         super(name);
     }
