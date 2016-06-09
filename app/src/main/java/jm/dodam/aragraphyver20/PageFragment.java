@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,7 @@ public class PageFragment extends Fragment {
     private int followCnt=0;
 
     public static final String ARG_PAGE = "ARG_PAGE";
-    private ListView mListView;
+    private RecyclerView recyclerView_mybook, recyclerView_fallow;
     private int pageNum;
 
     private ImageButton timeLineLikeBtn;
@@ -119,10 +121,16 @@ public class PageFragment extends Fragment {
                 break;
             case 2:
                 view = inflater.inflate(R.layout.fragment_parallax, container, false);
-                mListView = (ListView) view.findViewById(R.id.listview);
+                recyclerView_mybook = (RecyclerView) view.findViewById(R.id.mybookList);
+                recyclerView_mybook.setHasFixedSize(true);
+                recyclerView_mybook.setLayoutManager(new LinearLayoutManager(getActivity()));
                 break;
             case 3:
-                view = inflater.inflate(R.layout.fragment_page, container, false);
+                view = inflater.inflate(R.layout.fragment_fallowing, container, false);
+                recyclerView_fallow = (RecyclerView) view.findViewById(R.id.fallowList);
+                recyclerView_fallow.setHasFixedSize(true);
+                recyclerView_fallow.setLayoutManager(new LinearLayoutManager(getActivity()));
+                Utils.populateRecyclerView(recyclerView_fallow);
                 break;
             case 4:
                 view = inflater.inflate(R.layout.fragment_page, container, false);
@@ -136,11 +144,12 @@ public class PageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (pageNum == 2) {
-            StikkyHeaderBuilder.stickTo(mListView)
+
+            StikkyHeaderBuilder.stickTo(recyclerView_mybook)
                     .setHeader(R.id.header, (ViewGroup) getView())
                     .minHeightHeader(850)//헤더길이설정
                     .build();
-            Utils.populateListView(mListView);
+            Utils.populateRecyclerView(recyclerView_mybook);
         }
     }
 }
