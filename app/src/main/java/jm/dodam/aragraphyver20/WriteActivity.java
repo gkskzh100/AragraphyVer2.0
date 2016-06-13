@@ -18,6 +18,9 @@ import android.widget.LinearLayout;
 
 public class WriteActivity extends Activity {
 
+    private int[] background={ R.drawable.i1, R.drawable.i2, R.drawable.view3, R.drawable.newbackgroud, R.drawable.view4};
+    private int temp = 0;
+
     private ImageButton writeBackBtn;
     private ImageButton writeUploadBtn;
     private EditText writeCalEdit;
@@ -26,6 +29,8 @@ public class WriteActivity extends Activity {
     private EditText writeHashTagEdit;
 
     private LinearLayout writeCalBackLayout;
+    private LinearLayout writeTalkBackLayout;
+    private LinearLayout writeBackgroundLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,29 @@ public class WriteActivity extends Activity {
 
             }
         });
+        writeTalkEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //입력 전
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //입력 하는 중
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //입력 후
+                String string = s.toString();
+                if(string.length()==0) {
+                    int backColor = getResources().getColor(R.color.colorBackground);
+                    writeTalkBackLayout.setBackgroundColor(backColor);
+                } else {
+                    writeTalkBackLayout.setBackgroundColor(Color.TRANSPARENT);
+                }
+            }
+        });
     }
 
     private void init() {
@@ -72,6 +100,8 @@ public class WriteActivity extends Activity {
         writeBackgroundBtn = (ImageButton) findViewById(R.id.writeBackgroundBtn);
         writeHashTagEdit = (EditText) findViewById(R.id.writeHashTagEdit);
         writeCalBackLayout = (LinearLayout) findViewById(R.id.writeCalBackLayout);
+        writeBackgroundLayout = (LinearLayout) findViewById(R.id.writeBackgroundLayout);
+        writeTalkBackLayout = (LinearLayout) findViewById(R.id.writeTalkBackLayout);
         setHideStatusBar();
         setListener();
     }
@@ -82,6 +112,22 @@ public class WriteActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        writeBackgroundBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int index = (int) (Math.random()*5);
+                int res = background[index];
+
+                for (int i=0; i<=2; i++) {   //랜덤숫자 비중복
+                    if(index == temp) {
+                        index = (int) (Math.random()*5);
+                        res = background[index];
+                        temp = index;
+                    } else break;
+                }
+                writeBackgroundLayout.setBackgroundResource(res);
             }
         });
 
