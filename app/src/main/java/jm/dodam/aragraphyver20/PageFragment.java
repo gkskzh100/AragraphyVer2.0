@@ -1,5 +1,7 @@
 package jm.dodam.aragraphyver20;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,12 +24,14 @@ import java.util.List;
 
 import jm.dodam.aragraphyver20.core.StikkyHeaderBuilder;
 
-public class PageFragment extends Fragment {
+import static jm.dodam.aragraphyver20.MainActivity.*;
+
+public class PageFragment extends Fragment{
     private int likeCnt=0;
     private int followCnt=0;
 
     public static final String ARG_PAGE = "ARG_PAGE";
-    private ListView mListView;
+    private RecyclerView recyclerView_mybook, recyclerView_fallow;
     private int pageNum;
 
     private ImageButton timeLineLikeBtn;
@@ -41,6 +45,7 @@ public class PageFragment extends Fragment {
     private BottomSheetBehavior timeLineBottomSheetBehavior;
 
     private int timeLineLikeNum = 193;
+
 
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -61,7 +66,9 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = null;
-
+        View frontView = inflater.inflate(R.layout.activity_main, container, false);
+        LinearLayout linearLayout = (LinearLayout) frontView.findViewById(R.id.menuLayout);
+        linearLayout.bringToFront();
         switch (pageNum) {
             case 1:
                 view = inflater.inflate(R.layout.fragment_timeline, container, false);
@@ -84,7 +91,6 @@ public class PageFragment extends Fragment {
                 item[1] = new RecyclerItem(R.drawable.aragraphy_main2,"araGraphy0609","comment?");
                 for (int i=0;i<2;i++) items.add(item[i]);
 
-                timeLineCommentRecyclerView.setAdapter(new RecyclerAdapter(getContext(),items,R.layout.fragment_timeline));
 
                 timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
 
@@ -137,10 +143,19 @@ public class PageFragment extends Fragment {
                 break;
             case 2:
                 view = inflater.inflate(R.layout.fragment_parallax, container, false);
-                mListView = (ListView) view.findViewById(R.id.listview);
+                linearLayout.bringToFront();
+                linearLayout.invalidate();
+
+                recyclerView_mybook = (RecyclerView) view.findViewById(R.id.mybookList);
+                recyclerView_mybook.setHasFixedSize(true);
+                recyclerView_mybook.setLayoutManager(new LinearLayoutManager(getActivity()));
                 break;
             case 3:
-                view = inflater.inflate(R.layout.fragment_page, container, false);
+                view = inflater.inflate(R.layout.fragment_fallowing, container, false);
+                recyclerView_fallow = (RecyclerView) view.findViewById(R.id.fallowList);
+                recyclerView_fallow.setHasFixedSize(true);
+                recyclerView_fallow.setLayoutManager(new LinearLayoutManager(getActivity()));
+                Utils.populateRecyclerView(recyclerView_fallow);
                 break;
             case 4:
                 view = inflater.inflate(R.layout.fragment_page, container, false);
@@ -154,11 +169,18 @@ public class PageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (pageNum == 2) {
-            StikkyHeaderBuilder.stickTo(mListView)
+
+            StikkyHeaderBuilder.stickTo(recyclerView_mybook)
                     .setHeader(R.id.header, (ViewGroup) getView())
-                    .minHeightHeader(850)//헤더길이설정
+                    .minHeightHeaderDim(R.dimen.min_height_header)//헤더길이설정
                     .build();
-            Utils.populateListView(mListView);
+            Utils.populateRecyclerView(recyclerView_mybook);
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
     }
 }
