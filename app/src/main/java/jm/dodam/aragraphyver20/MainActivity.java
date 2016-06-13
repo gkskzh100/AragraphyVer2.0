@@ -1,5 +1,6 @@
 package jm.dodam.aragraphyver20;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,7 +12,10 @@ import android.widget.LinearLayout;
 
 import com.astuetz.PagerSlidingTabStrip;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity{
+    LinearLayout linearLayout, linearLayout2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +32,14 @@ public class MainActivity extends AppCompatActivity {
         PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.mainTabBar);
         tabStrip.setViewPager(viewPager);
 
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
-        linearLayout.bringToFront();
-        linearLayout.invalidate();
+        linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
+
+        /*  linearLayout.bringToFront();
+        linearLayout.invalidate();*/
 
 
     }
+
 
     private void init() {
 //        setListener();

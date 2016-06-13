@@ -9,26 +9,25 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import jm.dodam.aragraphyver20.core.StikkyHeaderBuilder;
 
 /**
  * Created by Bong on 2016-06-07.
  */
 public class Utils {
-    private static final int COUNT_ITEMS = 500;
+    private static final int COUNT_ITEMS = 100;
 
-    public static void populateListView(ListView listView){
-        String[] elements = new String[COUNT_ITEMS];
-        for (int i = 0;i < elements.length;i++){
-            elements[i] = "row " + i;
-        }
-        listView.setAdapter(new ArrayAdapter<>(listView.getContext(),android.R.layout.simple_list_item_1,elements));
-    }
+
     public  static void populateRecyclerView(RecyclerView recyclerview){
         List<String> elements = new ArrayList<>(COUNT_ITEMS);
         for (int i = 0;i<COUNT_ITEMS;i++){
             elements.add("row "+i);
+
         }
         SimpleRecyclerAdapter recyclerAdapter = new SimpleRecyclerAdapter(recyclerview.getContext(),elements);
         recyclerview.setAdapter(recyclerAdapter);
@@ -51,7 +50,6 @@ public class Utils {
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.text.setText(mElements.get(position));
         }
-
         @Override
         public int getItemCount() {
             return mElements.size();

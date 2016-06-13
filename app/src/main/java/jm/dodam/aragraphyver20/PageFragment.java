@@ -1,5 +1,7 @@
 package jm.dodam.aragraphyver20;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,7 +23,9 @@ import java.util.List;
 
 import jm.dodam.aragraphyver20.core.StikkyHeaderBuilder;
 
-public class PageFragment extends Fragment {
+import static jm.dodam.aragraphyver20.MainActivity.*;
+
+public class PageFragment extends Fragment{
     private int likeCnt=0;
     private int followCnt=0;
 
@@ -38,6 +43,7 @@ public class PageFragment extends Fragment {
     private BottomSheetBehavior timeLineBottomSheetBehavior;
 
     private int timeLineLikeNum = 193;
+
 
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -58,7 +64,9 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = null;
-
+        View frontView = inflater.inflate(R.layout.activity_main, container, false);
+        LinearLayout linearLayout = (LinearLayout) frontView.findViewById(R.id.menuLayout);
+        linearLayout.bringToFront();
         switch (pageNum) {
             case 1:
                 view = inflater.inflate(R.layout.fragment_timeline, container, false);
@@ -121,6 +129,9 @@ public class PageFragment extends Fragment {
                 break;
             case 2:
                 view = inflater.inflate(R.layout.fragment_parallax, container, false);
+                linearLayout.bringToFront();
+                linearLayout.invalidate();
+
                 recyclerView_mybook = (RecyclerView) view.findViewById(R.id.mybookList);
                 recyclerView_mybook.setHasFixedSize(true);
                 recyclerView_mybook.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -147,9 +158,15 @@ public class PageFragment extends Fragment {
 
             StikkyHeaderBuilder.stickTo(recyclerView_mybook)
                     .setHeader(R.id.header, (ViewGroup) getView())
-                    .minHeightHeader(850)//헤더길이설정
+                    .minHeightHeaderDim(R.dimen.min_height_header)//헤더길이설정
                     .build();
             Utils.populateRecyclerView(recyclerView_mybook);
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
     }
 }
