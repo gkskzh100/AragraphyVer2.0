@@ -1,16 +1,27 @@
 package jm.dodam.aragraphyver20;
 
 /**
- * Created by Bong on 2016-05-31.
+ * Created by kim on 2016-06-09.
  */
 public class RecyclerItem {
-    int image;
+    int profile;
+    String name,comment;
 
-    public RecyclerItem(int image){
-        this.image = image;
-    }
-    int getImage(){
-        return this.image;
+    int getProfile() {
+        return this.profile;
     }
 
+    String getName() {
+        return this.name;
+    }
+
+    String getComment() {
+        return this.comment;
+    }
+
+    RecyclerItem(int profile, String name, String comment) {
+        this.profile=profile;
+        this.name=name;
+        this.comment=comment;
+    }
 }

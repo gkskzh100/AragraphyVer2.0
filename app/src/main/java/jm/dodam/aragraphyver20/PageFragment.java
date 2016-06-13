@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,6 +36,7 @@ public class PageFragment extends Fragment {
     private Button timeLineCommentBtn;
     private TextView timeLineCommentText;
     private ImageButton timeLineFollowBtn;
+    private RecyclerView timeLineCommentRecyclerView;
 
     private BottomSheetBehavior timeLineBottomSheetBehavior;
 
@@ -67,6 +72,19 @@ public class PageFragment extends Fragment {
                 timeLineCommentBtn = (Button) view.findViewById(R.id.timeLineCommentBtn);
                 timeLineCommentText = (TextView) view.findViewById(R.id.timeLineCommentText);
                 timeLineFollowBtn = (ImageButton) view.findViewById(R.id.timeLineFollowBtn);
+                timeLineCommentRecyclerView = (RecyclerView) view.findViewById(R.id.timeLineCommentRecyclerView);
+
+                LinearLayoutManager layoutManager= new LinearLayoutManager(getContext());
+                timeLineCommentRecyclerView.setHasFixedSize(true);
+                timeLineCommentRecyclerView.setLayoutManager(layoutManager);
+
+                List<RecyclerItem> items = new ArrayList<>();
+                RecyclerItem[] item = new RecyclerItem[2];
+                item[0] = new RecyclerItem(R.drawable.view3,"araGraphy0608","commentCommentComment");
+                item[1] = new RecyclerItem(R.drawable.aragraphy_main2,"araGraphy0609","comment?");
+                for (int i=0;i<2;i++) items.add(item[i]);
+
+                timeLineCommentRecyclerView.setAdapter(new RecyclerAdapter(getContext(),items,R.layout.fragment_timeline));
 
                 timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
 
