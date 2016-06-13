@@ -16,7 +16,6 @@ import com.astuetz.PagerSlidingTabStrip;
 public class MainActivity extends AppCompatActivity{
     LinearLayout linearLayout, linearLayout2;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +33,8 @@ public class MainActivity extends AppCompatActivity{
 
         linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
 
-        /*  linearLayout.bringToFront();
-        linearLayout.invalidate();*/
+//        linearLayout.bringToFront();
+//        linearLayout.invalidate();
 
 
     }
