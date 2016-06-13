@@ -38,12 +38,26 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"></LinearLayout>
 
-            <ImageButton
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.1"
-                android:background="#00000000"
-                android:src="@drawable/back" />
+                android:weightSum="3"
+                android:orientation="vertical">
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/writeBackBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:src="@drawable/back"
+                    android:scaleType="centerInside"/>
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -67,14 +81,28 @@
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5" />
+                android:layout_weight="6" />
 
-            <ImageButton
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:background="#00000000"
-                android:src="@drawable/upload" />
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:weightSum="3">
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/writeUploadBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:src="@drawable/upload"
+                    android:scaleType="centerInside"/>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -155,18 +183,20 @@
         android:weightSum="100"
         android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/writeCalBackLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="50"
             android:orientation="vertical"
             android:background="#84000000">
             <EditText
+                android:id="@+id/writeCalEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:hint="캘리그라피를 작성하세요."
                 android:textColorHint="#FFFFFF"
-                android:gravity="center" />
+                android:gravity="center"/>
         </LinearLayout>
         <android.support.v4.widget.Space
             android:layout_width="match_parent"
@@ -179,6 +209,7 @@
             android:orientation="vertical"
             android:background="#84000000">
             <EditText
+                android:id="@+id/writeTalkEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -201,6 +232,7 @@
             android:layout_weight="90" />
 
         <ImageButton
+            android:id="@+id/writeBackgroundBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="10"
@@ -216,6 +248,7 @@
         android:orientation="vertical"
         android:background="#84000000">
         <EditText
+            android:id="@+id/writeHashTagEdit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
