@@ -5,6 +5,7 @@ package jm.dodam.aragraphyver20;
  */
 public class RecyclerItem {
     int profile;
+    int image;
     String name,comment;
 
     int getProfile() {
