@@ -5,7 +5,6 @@ package jm.dodam.aragraphyver20;
  */
 public class RecyclerItem {
     int profile;
-    int image;
     String name,comment;
 
     int getProfile() {
@@ -18,6 +17,12 @@ public class RecyclerItem {
 
     String getComment() {
         return this.comment;
+    }
+
+
+
+    public RecyclerItem(int profile) {
+        this.profile = profile;
     }
 
     RecyclerItem(int profile, String name, String comment) {

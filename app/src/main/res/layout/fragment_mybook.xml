@@ -5,12 +5,16 @@
     android:orientation="vertical"
     android:weightSum="100"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="21"></LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mybookList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="100"
-        android:scrollbars="vertical"
+        android:layout_weight="79"
+        android:scrollbars="none"
 
         />
 

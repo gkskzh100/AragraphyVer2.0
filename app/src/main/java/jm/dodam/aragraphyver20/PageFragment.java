@@ -22,13 +22,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import jm.dodam.aragraphyver20.core.StikkyHeaderBuilder;
 
-import static jm.dodam.aragraphyver20.MainActivity.*;
-
-public class PageFragment extends Fragment{
-    private int likeCnt=0;
-    private int followCnt=0;
+public class PageFragment extends Fragment {
+    private int likeCnt = 0;
+    private int followCnt = 0;
 
     public static final String ARG_PAGE = "ARG_PAGE";
     private RecyclerView recyclerView_mybook, recyclerView_fallow;
@@ -46,6 +43,8 @@ public class PageFragment extends Fragment{
 
     private int timeLineLikeNum = 193;
 
+    private List<RecyclerItem> bookitems = new ArrayList<>();
+    private List<FollowItem> followItems = new ArrayList<>();
 
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -70,6 +69,7 @@ public class PageFragment extends Fragment{
         LinearLayout linearLayout = (LinearLayout) frontView.findViewById(R.id.menuLayout);
         linearLayout.bringToFront();
         switch (pageNum) {
+
             case 1:
                 view = inflater.inflate(R.layout.fragment_timeline, container, false);
 
@@ -81,15 +81,15 @@ public class PageFragment extends Fragment{
                 timeLineFollowBtn = (ImageButton) view.findViewById(R.id.timeLineFollowBtn);
                 timeLineCommentRecyclerView = (RecyclerView) view.findViewById(R.id.timeLineCommentRecyclerView);
 
-                LinearLayoutManager layoutManager= new LinearLayoutManager(getContext());
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
                 timeLineCommentRecyclerView.setHasFixedSize(true);
                 timeLineCommentRecyclerView.setLayoutManager(layoutManager);
 
                 List<RecyclerItem> items = new ArrayList<>();
                 RecyclerItem[] item = new RecyclerItem[2];
-                item[0] = new RecyclerItem(R.drawable.view3,"araGraphy0608","commentCommentComment");
-                item[1] = new RecyclerItem(R.drawable.aragraphy_main2,"araGraphy0609","comment?");
-                for (int i=0;i<2;i++) items.add(item[i]);
+                item[0] = new RecyclerItem(R.drawable.view3, "araGraphy0608", "commentCommentComment");
+                item[1] = new RecyclerItem(R.drawable.aragraphy_main2, "araGraphy0609", "comment?");
+                for (int i = 0; i < 2; i++) items.add(item[i]);
 
 
                 timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
@@ -97,15 +97,15 @@ public class PageFragment extends Fragment{
                 timeLineLikeBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(likeCnt ==0) {
+                        if (likeCnt == 0) {
                             timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_like_btn));
                             timeLineLikeNum++;
                             likeCnt++;
                             timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
-                        } else if(likeCnt ==1) {
+                        } else if (likeCnt == 1) {
                             timeLineLikeBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.like_btn));
                             timeLineLikeNum--;
-                            likeCnt =0;
+                            likeCnt = 0;
                             timeLineLikeText.setText(Integer.toString(timeLineLikeNum));
                         }
                     }
@@ -113,7 +113,7 @@ public class PageFragment extends Fragment{
                 timeLineWriteBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getContext(),WriteActivity.class);
+                        Intent intent = new Intent(getContext(), WriteActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -121,18 +121,18 @@ public class PageFragment extends Fragment{
                 timeLineFollowBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(followCnt==0) {
+                        if (followCnt == 0) {
                             timeLineFollowBtn.setImageResource(R.drawable.following_btn);
                             followCnt++;
-                        } else if(followCnt==1) {
+                        } else if (followCnt == 1) {
                             timeLineFollowBtn.setImageResource(R.drawable.follow_btn);
-                            followCnt=0;
+                            followCnt = 0;
                         }
                     }
                 });
 
                 View bottomSheet = view.findViewById(R.id.timeLineBottom_sheet);
-                timeLineBottomSheetBehavior=BottomSheetBehavior.from(bottomSheet);
+                timeLineBottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
                 timeLineCommentBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -142,20 +142,20 @@ public class PageFragment extends Fragment{
 
                 break;
             case 2:
-                view = inflater.inflate(R.layout.fragment_parallax, container, false);
-                linearLayout.bringToFront();
-                linearLayout.invalidate();
-
+                view = inflater.inflate(R.layout.fragment_mybook, container, false);
                 recyclerView_mybook = (RecyclerView) view.findViewById(R.id.mybookList);
                 recyclerView_mybook.setHasFixedSize(true);
                 recyclerView_mybook.setLayoutManager(new LinearLayoutManager(getActivity()));
+                MyBookAdapter myBookAdapter = new MyBookAdapter(getHeader(), getListItems());
+                recyclerView_mybook.setAdapter(myBookAdapter);
                 break;
             case 3:
                 view = inflater.inflate(R.layout.fragment_fallowing, container, false);
                 recyclerView_fallow = (RecyclerView) view.findViewById(R.id.fallowList);
                 recyclerView_fallow.setHasFixedSize(true);
                 recyclerView_fallow.setLayoutManager(new LinearLayoutManager(getActivity()));
-                Utils.populateRecyclerView(recyclerView_fallow);
+                FollowAdapter followAdapter = new FollowAdapter(getFollowItems());
+                recyclerView_fallow.setAdapter(followAdapter);
                 break;
             case 4:
                 view = inflater.inflate(R.layout.fragment_page, container, false);
@@ -165,17 +165,9 @@ public class PageFragment extends Fragment{
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        if (pageNum == 2) {
-
-            StikkyHeaderBuilder.stickTo(recyclerView_mybook)
-                    .setHeader(R.id.header, (ViewGroup) getView())
-                    .minHeightHeaderDim(R.dimen.min_height_header)//헤더길이설정
-                    .build();
-            Utils.populateRecyclerView(recyclerView_mybook);
-        }
+    public MyBookHeader getHeader() {
+        MyBookHeader header = new MyBookHeader("헤더입니다");
+        return header;
     }
 
     @Override
@@ -183,4 +175,24 @@ public class PageFragment extends Fragment{
         super.onAttach(context);
 
     }
+
+    public List<RecyclerItem> getListItems() {
+        RecyclerItem bookitem[] = new RecyclerItem[10];
+        for (int i = 0; i < 10; i++) {
+            bookitem[i] = new RecyclerItem(R.drawable.i2);
+            bookitems.add(bookitem[i]);
+        }
+
+        return bookitems;
+    }
+    public List<FollowItem> getFollowItems() {
+        FollowItem followitem[] = new FollowItem[10];
+        for (int i = 0; i < 10; i++) {
+            followitem[i] = new FollowItem(R.drawable.i2);
+            followItems.add(followitem[i]);
+        }
+
+        return followItems;
+    }
+
 }
