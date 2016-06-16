@@ -197,6 +197,7 @@
                 android:background="@android:color/transparent"
                 android:hint="캘리그라피를 작성하세요."
                 android:textColorHint="#FFFFFF"
+                android:textSize="18sp"
                 android:gravity="center"/>
         </LinearLayout>
         <android.support.v4.widget.Space
@@ -217,6 +218,7 @@
                 android:background="@android:color/transparent"
                 android:hint="더 전하고 싶은 말을 써주세요."
                 android:textColorHint="#FFFFFF"
+                android:textSize="18sp"
                 android:gravity="center" />
         </LinearLayout>
     </LinearLayout>

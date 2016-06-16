@@ -58,7 +58,6 @@ public class PageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageNum = getArguments().getInt(ARG_PAGE);
-
     }
 
     @Nullable
