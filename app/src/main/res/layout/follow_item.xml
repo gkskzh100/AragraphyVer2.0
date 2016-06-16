@@ -68,7 +68,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="35"></LinearLayout>
             <ImageButton
-                android:id="@+id/followingFollowBtn"
+                android:id="@+id/followingButton"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="30"
