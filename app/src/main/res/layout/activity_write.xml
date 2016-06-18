@@ -266,7 +266,7 @@
                 android:background="@android:color/transparent"
                 android:hint="더 전하고 싶은 말을 써주세요."
                 android:textColorHint="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:gravity="center" />
         </LinearLayout>
     </LinearLayout>

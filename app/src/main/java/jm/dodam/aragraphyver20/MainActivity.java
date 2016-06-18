@@ -1,7 +1,7 @@
 package jm.dodam.aragraphyver20;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -15,6 +15,9 @@ import com.astuetz.PagerSlidingTabStrip;
 
 public class MainActivity extends AppCompatActivity{
     LinearLayout linearLayout, linearLayout2;
+
+    private int tabTypeFaceStyle = Typeface.NORMAL;
+    private Typeface tabTypeface = Typeface.SANS_SERIF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity{
 
         PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.mainTabBar);
         tabStrip.setViewPager(viewPager);
+        tabStrip.setTypeface(tabTypeface, tabTypeFaceStyle);
 
         linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
 
@@ -52,6 +56,12 @@ public class MainActivity extends AppCompatActivity{
         }
         //TODO : http://stackoverflow.com/questions/19746943/why-cant-we-use-a-translucent-system-bars-with-and-actionbar
     }
+
+    public void setTypeface(Typeface typeface, int style) {
+        this.tabTypeface = typeface;
+        this.tabTypeFaceStyle = style;
+    }
+
 
 
 //    private void setListener() {
