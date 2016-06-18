@@ -47,11 +47,12 @@ public class MyBookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        final RecyclerItem item = mElements.get(position);
         ViewHolder viewHolder =(ViewHolder)holder;
         if (holder instanceof ViewHeader){
             ViewHeader viewHeader = (ViewHeader)holder;
         }
-
+        requestManager.load(item.getProfile()).into(viewHolder.profile);
     }
 
     @Override
@@ -69,8 +70,8 @@ public class MyBookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView text;
-        private ImageView profile;
+        public TextView text;
+        public ImageView profile;
 
         public ViewHolder(View itemView) {
             super(itemView);
