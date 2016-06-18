@@ -38,5 +38,6 @@ dependencies {
 //    Bottom Sheet
     compile 'com.android.support:design:23.2.0'
 
-
+// ImageLoading
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

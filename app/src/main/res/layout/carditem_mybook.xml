@@ -130,7 +130,7 @@
                 android:layout_height="0dip"
                 android:layout_weight="90">
                 <ImageView
-                    android:background="@drawable/i3"
+
                     android:id="@+id/bookImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

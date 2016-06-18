@@ -19,6 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +49,7 @@ public class PageFragment extends Fragment {
     private List<RecyclerItem> bookitems = new ArrayList<>();
     private List<FollowItem> followItems = new ArrayList<>();
 
+    private RequestManager requestManager;
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
@@ -58,6 +62,7 @@ public class PageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageNum = getArguments().getInt(ARG_PAGE);
+        requestManager = Glide.with(this);
     }
 
     @Nullable
@@ -145,7 +150,7 @@ public class PageFragment extends Fragment {
                 recyclerView_mybook = (RecyclerView) view.findViewById(R.id.mybookList);
                 recyclerView_mybook.setHasFixedSize(true);
                 recyclerView_mybook.setLayoutManager(new LinearLayoutManager(getActivity()));
-                MyBookAdapter myBookAdapter = new MyBookAdapter(getHeader(), getListItems());
+                MyBookAdapter myBookAdapter = new MyBookAdapter(getHeader(), getListItems(),requestManager);
                 recyclerView_mybook.setAdapter(myBookAdapter);
                 break;
             case 3:
