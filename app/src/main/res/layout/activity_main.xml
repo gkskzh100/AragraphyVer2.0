@@ -87,7 +87,7 @@
                     android:layout_weight="5"
                     android:background="#84000000"
                     android:textColor="#ffffff"
-                    android:textSize="17sp"
+                    android:textSize="12sp"
                     app:pstsIndicatorColor="#ffffff"
                     app:pstsIndicatorHeight="3dp"
                     app:pstsShouldExpand="true"
