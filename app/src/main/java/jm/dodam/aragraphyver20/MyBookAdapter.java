@@ -52,7 +52,7 @@ public class MyBookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         if (holder instanceof ViewHeader){
             ViewHeader viewHeader = (ViewHeader)holder;
         }
-        requestManager.load(item.getProfile()).into(viewHolder.profile);
+//        requestManager.load(item.getProfile()).into(viewHolder.profile);
     }
 
     @Override

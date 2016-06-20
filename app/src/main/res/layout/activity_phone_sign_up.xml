@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:orientation="vertical"
+    tools:context="jm.dodam.aragraphyver20.PhoneSignUpActivity">
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:text="환영합니다! \n전화번호 인증을 해주세요"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#ffffff"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"></Spinner>
+</LinearLayout>

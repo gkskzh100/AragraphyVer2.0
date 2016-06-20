@@ -28,18 +28,18 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.InvisibleActionBar" />
-
-        <activity android:name=".WriteActivity"
+        <activity
+            android:name=".WriteActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
 
-        <service android:name=".MyIntentService"
+        <service
+            android:name=".MyIntentService"
             android:enabled="true"
-            android:exported="false"/>
+            android:exported="false" />
 
+        <activity android:name=".PhoneSignUpActivity"></activity>
     </application>
-
 
 </manifest>
