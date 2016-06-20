@@ -8,13 +8,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="21">
+        android:layout_weight="15.9">
 
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fallowList"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="79"
+        android:layout_weight="84.1"
         android:scrollbars="none"/>
 </LinearLayout>

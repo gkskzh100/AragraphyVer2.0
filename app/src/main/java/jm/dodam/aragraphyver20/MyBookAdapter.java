@@ -1,7 +1,7 @@
 package jm.dodam.aragraphyver20;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
@@ -21,20 +22,23 @@ public class MyBookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     List<RecyclerItem> mElements;
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
-    private RequestManager requestManager;
     MyBookHeader header;
+    Context context;
+    Uri uri = Uri.parse("android.resource://jm.dodam.aragraphyver20/drawable/i1");
 
-    public MyBookAdapter(MyBookHeader header, List<RecyclerItem> elements, RequestManager requestManager) {
+
+    public MyBookAdapter(MyBookHeader header, List<RecyclerItem> elements, Context context) {
         this.header = header;
         this.mElements = elements;
-        this.requestManager = requestManager;
+        this.context = context;
+
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_HEADER) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.headeritem_mybook, parent, false);
-            return new ViewHolder(view);
+            return new ViewHeader(view);
         } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.carditem_mybook, parent, false);
             return new ViewHolder(view);
@@ -48,16 +52,24 @@ public class MyBookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final RecyclerItem item = mElements.get(position);
-        ViewHolder viewHolder =(ViewHolder)holder;
+
         if (holder instanceof ViewHeader){
             ViewHeader viewHeader = (ViewHeader)holder;
+        }else if (holder instanceof ViewHolder){
+            ViewHolder viewHolder =(ViewHolder)holder;
+            Glide.with(context)
+                    .load(item.getProfile())
+                    .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(viewHolder.mainImage);
+
         }
-        requestManager.load(item.getProfile()).into(viewHolder.profile);
+
     }
 
     @Override
     public int getItemCount() {
-        return mElements.size() + 1;
+        return mElements.size();
     }
 
     public boolean isPositionHeader(int position) {
@@ -71,12 +83,13 @@ public class MyBookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView text;
-        public ImageView profile;
+        public ImageView mainImage;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            profile = (ImageView) itemView.findViewById(R.id.bookImage);
+            mainImage = (ImageView) itemView.findViewById(R.id.bookImage);
+
         }
     }
 
