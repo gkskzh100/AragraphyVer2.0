@@ -64,11 +64,8 @@ public class MyBookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     .into(viewHolder.mainImage);
 
         }
-<<<<<<< HEAD
-
-=======
 //        requestManager.load(item.getProfile()).into(viewHolder.profile);
->>>>>>> origin/master
+
     }
 
     @Override

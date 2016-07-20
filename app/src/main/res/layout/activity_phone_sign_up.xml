@@ -22,4 +22,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"></Spinner>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="01012345678"/>
+    </android.support.design.widget.TextInputLayout>
 </LinearLayout>
